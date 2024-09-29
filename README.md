@@ -1,38 +1,37 @@
 # COUB BOT
 
-1.) Siapin kopi 1 gelas
+1.) Siapkan kopi 1 gelas ☕.
 
-2.) install python kalo belom install
+2.) Pastikan Node.js dan npm sudah terinstall di server Anda. Jika belum, skrip instalasi sudah termasuk perintah instalasi.
 
-***LINUX/VPS***
+**LINUX/VPS**
 
-4.) copas aja command di bawah buat installasi
+4.) Untuk instalasi, cukup salin dan jalankan perintah berikut di terminal:
 
-```
+```bash
 bash <(curl -s https://file.winsnip.xyz/file/uploads/coub.sh)
-```
 
-5.) buat edit data query sama mode screen commandnya di bawah, buat closenya ctrl+x trus y lalu enter aja
+5.) Untuk memasukkan token baru setelah instalasi, buka file data.txt:
 
-***untuk bikin screen***
-```
-screen -r coub-bot
-```
-***untuk buka screennya***
-```
-screen -x coub-bot
-```
-***untuk edit file query***
-```
-nano data.txt
-```
+```bash
+nano ~/coub-bot/data.txt
 
-6.) buat run di bawah juga
+***untuk check status***
+systemctl status coub-bot
 
-```
-node index.js
-```
+***untuk restart***
+systemctl restart coub-bot
 
+***untuk stop***
+systemctl stop coub-bot
+
+***untuk melihat logs***
+journalctl -u coub-bot -f
+
+6.) Jika ingin menjalankan ulang bot secara manual, gunakan perintah ini:
+
+```bash
+node ~/coub-bot/index.js
 
 
 ***DONASI***
