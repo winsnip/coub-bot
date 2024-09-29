@@ -8,31 +8,39 @@
 
 4.) Untuk instalasi, cukup salin dan jalankan perintah berikut di terminal:
 
-```bash
+```
 bash <(curl -s https://file.winsnip.xyz/file/uploads/coub.sh)
 ```
 
 5.) Untuk memasukkan token baru setelah instalasi, buka file data.txt:
 
-```bash
+```
 nano ~/coub-bot/data.txt
 ```
 
 ***untuk check status***
+```
 systemctl status coub-bot
+```
 
 ***untuk restart***
+```
 systemctl restart coub-bot
+```
 
 ***untuk stop***
+```
 systemctl stop coub-bot
+```
 
 ***untuk melihat logs***
+```
 journalctl -u coub-bot -f
+```
 
 6.) Jika ingin menjalankan ulang bot secara manual, gunakan perintah ini:
 
-```bash
+```
 node ~/coub-bot/index.js
 ```
 
