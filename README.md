@@ -16,11 +16,11 @@ bash <(curl -s https://file.winsnip.xyz/file/uploads/coub.sh)
 
 ***untuk bikin screen***
 ```
-screen -R coub
+screen -r coub-bot
 ```
 ***untuk buka screennya***
 ```
-screen -x coub
+screen -x coub-bot
 ```
 ***untuk edit file query***
 ```
