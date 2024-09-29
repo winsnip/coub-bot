@@ -10,11 +10,13 @@
 
 ```bash
 bash <(curl -s https://file.winsnip.xyz/file/uploads/coub.sh)
+```
 
 5.) Untuk memasukkan token baru setelah instalasi, buka file data.txt:
 
 ```bash
 nano ~/coub-bot/data.txt
+```
 
 ***untuk check status***
 systemctl status coub-bot
@@ -32,6 +34,7 @@ journalctl -u coub-bot -f
 
 ```bash
 node ~/coub-bot/index.js
+```
 
 
 ***DONASI***
