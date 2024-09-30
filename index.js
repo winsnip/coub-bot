@@ -22,7 +22,7 @@ function loadQuery() {
     try {
         return fs.readFileSync('data.txt', 'utf-8').split('\n').map(line => line.trim()).filter(line => line);
     } catch (error) {
-        console.log("File data.txt tidak ditemukan.");
+        console.log("File data.txt not found.");
         return [];
     }
 }
@@ -42,9 +42,9 @@ async function getToken(apiToken) {
             const expirationHours = Math.round(expiresIn / 3600);
 
             if (expirationHours > 0) {
-                consolewithTime( `Token Berhasil didapatkan, Kadaluarsa dalam waktu ${expirationHours} Jam`);
+                consolewithTime( `Success get token, Expired in ${expirationHours} Hour`);
             } else {
-                consolewithTime( `Token Berhasil didapatkan, Kadaluarsa dalam waktu kurang dari 1 jam`);
+                consolewithTime( `Success get token, Expires in less than 1 hour`);
             }
             
             return accessToken;
@@ -81,7 +81,7 @@ async function getRewards(token) {
         const response = await axios.get(url, { headers });
         return response.data;
     } catch (error) {
-        consolewithTime( `User gagal mendapatkan reward. Error: ${error.response ? error.response.status : error.message}`);
+        consolewithTime( `Failed get reward. Error: ${error.response ? error.response.status : error.message}`);
         return null;
     }
 }
@@ -97,7 +97,7 @@ async function claimTask(token, taskId, taskTitle) {
         const response = await axios.get(url, { headers, params });
         return response.data;
     } catch (error) {
-        consolewithTime( `ID ${taskId} | Task '${taskTitle}' Gagal di klaim`);
+        consolewithTime( `ID ${taskId} | Task '${taskTitle}' failed to claim`);
         return null;
     }
 }
@@ -132,9 +132,9 @@ async function main() {
                 const taskId = task.id;
         
                 if (validTaskIds.includes(taskId)) {
-                    consolewithTime(`✅ ${task.title} Selesai...`);
+                    consolewithTime(`✅ ${task.title} Done...`);
                 } else {
-                    consolewithTime(`🚀 ${task.title} Memulai task...`);
+                    consolewithTime(`🚀 ${task.title} Starting task...`);
                     await claimTask(token, taskId, task.title);
                 }
             }
@@ -145,7 +145,7 @@ async function main() {
         const seconds = Math.floor((totalTime % 60000) / 1000);
         
         const now = new Date().toISOString().split('.')[0].replace('T', ' ');
-        console.log(`[${now}] Menunggu dalam ${seconds} detik untuk dilanjutkan...`);
+        console.log(`[${now}] Waiting in ${seconds} seconds to continue...`);
         if (seconds > 0) {
             await new Promise(resolve => setTimeout(resolve, totalTime));
         }
